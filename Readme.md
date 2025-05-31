@@ -1,62 +1,64 @@
-# EC2 WorkWeek Scheduler (AWS Lambda)
+# 🔁 Automated EC2 Scheduler for Work Hours (AWS Lambda)
 
-This AWS Lambda function automatically starts and stops EC2 instances based on Indian Standard Time (IST) workweek hours. It ensures your instances run only from **9:00 AM to 9:00 PM IST (Monday to Friday)** and remain **stopped during off-hours and weekends**, saving costs.
-
----
-
-## 💡 Use Case
-
-Use this setup for:
-
-- Developer or testing environments
-- Cost-optimized automation for non-production workloads
-- Automatically powering down during non-business hours
+This AWS Lambda function controls the start and stop cycle of EC2 instances based on Indian Standard Time (IST) business hours. It ensures that your instances are **powered on from 9:00 AM to 9:00 PM IST (Monday through Friday)** and are **shut down during nights and weekends**, helping you save on unnecessary compute costs.
 
 ---
 
-## ⏰ Scheduling Logic
+## 🧰 When to Use This
 
-| Day       | 9 AM - 9 PM | 9 PM - 9 AM |
-|-----------|-------------|-------------|
-| Mon–Fri   | EC2 Running | EC2 Stopped |
-| Sat–Sun   | EC2 Stopped | EC2 Stopped |
+This automation can be used for:
+
+- Development or test environments  
+- Efficient management of non-production workloads  
+- Automatically turning off instances during off-hours  
 
 ---
 
-## 🛠 How It Works
+## 📅 Weekly Operating Schedule (IST)
 
-1. **Lambda is triggered** twice daily via Amazon EventBridge (CloudWatch).
-2. **Time zone** is converted to IST using `pytz`.
-3. EC2 instances are managed based on **tags**:
-   - **Start logic**: Starts stopped instances with `AutoStart=true`.
-   - **Stop logic**: Stops running instances with `AutoStop=true`.
+| Day           | 9:00 AM – 9:00 PM | 9:00 PM – 9:00 AM |
+|----------------|-------------------|-------------------|
+| Monday–Friday  | ✅ EC2 Running     | 🔴 EC2 Stopped    |
+| Saturday–Sunday| 🔴 EC2 Stopped    | 🔴 EC2 Stopped    |
+
+---
+
+## ⚙️ Working
+
+1. Lambda is scheduled to run **twice per day** using **Amazon EventBridge (CloudWatch)**.
+2. The script uses the `pytz` library to convert time to **IST**.
+3. It identifies which instances to manage using tags:
+   - **Start Rule**: Any stopped instance with `AutoStart=true` will be started.
+   - **Stop Rule**: Any running instance with `AutoStop=true` will be stopped.
 
 ---
 
 ## 🏷 Tagging Your EC2 Instances
 
-To include EC2 instances in this schedule, tag them appropriately:
+Apply the following tags to include your EC2 instances in the schedule:
 
-| Key         | Value   | Used For       |
-|--------------|----------|----------------|
-| `Environment`| Development | General grouping |
-| `AutoStart`  | true     | To auto-start instances at 9 AM |
-| `AutoStop`   | true     | To auto-stop instances at 9 PM |
+| Tag Key       | Tag Value   | Purpose                      |
+|---------------|-------------|------------------------------|
+| `Environment` | Development | Categorizes the environment  |
+| `AutoStart`   | true        | Enables automatic start at 9 AM |
+| `AutoStop`    | true        | Enables automatic stop at 9 PM  |
 
-### ✅ How to Tag Instances:
+### 📝 Steps to Add Tags:
 
-1. Go to **EC2 Console > Instances**.
-2. Select the instance(s).
-3. Click **Tags > Manage Tags**.
-4. Add these tags:
+1. Open the **EC2 Console**.
+2. Select the instance(s) you wish to manage.
+3. Click on **Tags > Manage Tags**.
+4. Add the required tags:
    - `Environment = Development`
-   - `AutoStart = true` *(for starting)*
-   - `AutoStop = true` *(for stopping)*
-5. Save the changes.
+   - `AutoStart = true`
+   - `AutoStop = true`
+5. Save your changes.
 
-### Architecture 
+---
+
+<!-- ### Architecture 
 ![ChatGPT Image Apr 5, 2025, 07_45_13 AM](https://github.com/user-attachments/assets/706083f0-ce7c-4168-89d2-debb15074612)
-
+-->
  
 
  
