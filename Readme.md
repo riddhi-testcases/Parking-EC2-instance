@@ -1,4 +1,4 @@
-# 🔁 Automated EC2 Scheduler for Work Hours (AWS Lambda)
+# Automated EC2 Scheduler for Work Hours (AWS Lambda)
 
 This AWS Lambda function controls the start and stop cycle of EC2 instances based on Indian Standard Time (IST) business hours. It ensures that your instances are **powered on from 9:00 AM to 9:00 PM IST (Monday through Friday)** and are **shut down during nights and weekends**, helping you save on unnecessary compute costs.
 
