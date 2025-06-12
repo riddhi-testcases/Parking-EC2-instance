@@ -4,7 +4,7 @@ This AWS Lambda function controls the start and stop cycle of EC2 instances base
 
 ---
 
-## 🧰 When to Use This
+## When to Use This
 
 This automation can be used for:
 
