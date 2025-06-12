@@ -16,10 +16,10 @@ This automation can be used for:
 
 ## Weekly Operating Schedule (IST)
 
-| Day           | 9:00 AM – 9:00 PM | 9:00 PM – 9:00 AM |
+| Day            | 9:00 AM – 9:00 PM | 9:00 PM – 9:00 AM |
 |----------------|-------------------|-------------------|
-| Monday–Friday  | ✅ EC2 Running     | 🔴 EC2 Stopped    |
-| Saturday–Sunday| 🔴 EC2 Stopped    | 🔴 EC2 Stopped    |
+| Monday–Friday  | EC2 Running       | EC2 Stopped       |
+| Saturday–Sunday| EC2 Stopped       | EC2 Stopped       |
 
 ---
 
