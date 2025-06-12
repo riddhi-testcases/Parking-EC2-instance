@@ -14,7 +14,7 @@ This automation can be used for:
 
 ---
 
-## 📅 Weekly Operating Schedule (IST)
+## Weekly Operating Schedule (IST)
 
 | Day           | 9:00 AM – 9:00 PM | 9:00 PM – 9:00 AM |
 |----------------|-------------------|-------------------|
