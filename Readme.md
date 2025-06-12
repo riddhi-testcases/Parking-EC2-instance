@@ -23,7 +23,7 @@ This automation can be used for:
 
 ---
 
-## ⚙️ Working
+## Working
 
 1. Lambda is scheduled to run **twice per day** using **Amazon EventBridge (CloudWatch)**.
 2. The script uses the `pytz` library to convert time to **IST**.
@@ -33,7 +33,7 @@ This automation can be used for:
 
 ---
 
-## 🏷 Tagging Your EC2 Instances
+## Tagging Your EC2 Instances
 
 Apply the following tags to include your EC2 instances in the schedule:
 
