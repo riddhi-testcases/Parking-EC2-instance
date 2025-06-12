@@ -43,7 +43,7 @@ Apply the following tags to include your EC2 instances in the schedule:
 | `AutoStart`   | true        | Enables automatic start at 9 AM |
 | `AutoStop`    | true        | Enables automatic stop at 9 PM  |
 
-### 📝 Steps to Add Tags:
+### Steps to Add Tags:
 
 1. Open the **EC2 Console**.
 2. Select the instance(s) you wish to manage.
