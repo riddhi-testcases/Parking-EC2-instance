@@ -2,7 +2,6 @@
 
 This AWS Lambda function controls the start and stop cycle of EC2 instances based on Indian Standard Time (IST) business hours. It ensures that your instances are **powered on from 9:00 AM to 9:00 PM IST (Monday through Friday)** and are **shut down during nights and weekends**, helping you save on unnecessary compute costs.
 
----
 
 ## When to Use This
 
@@ -12,7 +11,6 @@ This automation can be used for:
 - Efficient management of non-production workloads  
 - Automatically turning off instances during off-hours  
 
----
 
 ## Weekly Operating Schedule (IST)
 
@@ -21,7 +19,6 @@ This automation can be used for:
 | Monday–Friday  | EC2 Running       | EC2 Stopped       |
 | Saturday–Sunday| EC2 Stopped       | EC2 Stopped       |
 
----
 
 ## Working
 
@@ -31,7 +28,6 @@ This automation can be used for:
    - **Start Rule**: Any stopped instance with `AutoStart=true` will be started.
    - **Stop Rule**: Any running instance with `AutoStop=true` will be stopped.
 
----
 
 ## Tagging Your EC2 Instances
 
@@ -54,7 +50,6 @@ Apply the following tags to include your EC2 instances in the schedule:
    - `AutoStop = true`
 5. Save your changes.
 
----
 
 <!-- ### Architecture 
 ![ChatGPT Image Apr 5, 2025, 07_45_13 AM](https://github.com/user-attachments/assets/706083f0-ce7c-4168-89d2-debb15074612)
